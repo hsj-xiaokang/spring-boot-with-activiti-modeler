@@ -3,8 +3,10 @@ package me.chenhai.demo.activiti.rest.editor.controller;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
 import org.activiti.bpmn.converter.BpmnXMLConverter;
 import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.editor.constants.ModelDataJsonConstants;
@@ -22,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -53,6 +56,7 @@ public class ModelController {
      * @throws UnsupportedEncodingException
      */
     @ApiOperation(value = "新建一个空模型")
+    @RequestMapping("/creatAModels")
     @PostMapping
     public Map<String,Object> newModel() throws UnsupportedEncodingException {
         RepositoryService repositoryService = processEngine.getRepositoryService();
@@ -96,6 +100,7 @@ public class ModelController {
      * @return
      */
     @ApiOperation(value = "获取所有模型")
+    @RequestMapping("/querytModels")
     @GetMapping
     public List<Model> modelList() {
         RepositoryService repositoryService = processEngine.getRepositoryService();
